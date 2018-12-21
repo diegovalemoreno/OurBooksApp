@@ -1,14 +1,10 @@
 import React from 'react';
 
-import {
-    View, Text
-} from 'react-native';
+import { View, Text } from 'react-native';
 
-// import styles from './styles';
-
+import styles from './styles';
 const Welcome = () =>
-    <
-    View >
+    <View style={styles.container}>
     <Text>Testando</Text>
     <
     /View>;
