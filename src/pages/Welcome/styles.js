@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'stretch',
   },
-  
+
   title: {
     textAlign: 'center',
     color: colors.white,
@@ -34,6 +34,14 @@ const styles = StyleSheet.create({
     borderRadius: metrics.baseRadius,
     height: 44,
     paddingHorizontal: metrics.basePadding,  
+  },
+   
+  input2: {
+    backgroundColor: colors.white,
+    borderRadius: metrics.baseRadius,
+    height: 44,
+    paddingHorizontal: metrics.basePadding, 
+    marginTop: 15, 
   },
 
   button: {
