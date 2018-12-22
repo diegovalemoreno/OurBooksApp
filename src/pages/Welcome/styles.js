@@ -57,6 +57,12 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontWeight: 'bold',
     fontSize: 16,
+  },
+
+  error: {
+    color: colors.danger,
+    textAlign: 'center',
+    marginTop: metrics.baseMargin,
   }
 }) 
 
