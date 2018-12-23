@@ -7,19 +7,20 @@ import styles from './styles';
 
 const BooksItem = ({ booksItem }) => (
   <View style={styles.container}>
-    <Text style={styles.repoTitle}>{booksItem.title}</Text>
+    <Text style={styles.repoTitle}>{`Título: ${booksItem.title} \n${booksItem.description}`}</Text>
+    
     <View style={styles.infoContainer}>
-      <View style={styles.info}>
-        <Icon name="star" size={12} style={styles.infoIcon} />
-        <Text style={styles.infoText}>{}</Text>
+      {/* <View style={styles.info}>
+        <Icon name="star" size={15} style={styles.infoIcon} />
+        <Text style={styles.infoText}>{booksItem.pagecount}</Text>
+      </View> */}
+      <View style={styles.infoContainer}>
+        <Icon name="star" size={15} style={styles.infoIcon} />
+        <Text style={styles.infoText}>{booksItem.pagecount}</Text>
       </View>
       <View style={styles.infoContainer}>
-        <Icon name="code-fork" size={12} style={styles.infoIcon} />
-        <Text style={styles.infoText}>{}</Text>
-      </View>
-      <View style={styles.infoContainer}>
-        <Icon name="eye" size={12} style={styles.infoIcon} />
-        <Text style={styles.infoText}>{}</Text>
+        <Icon name="eye" size={15} style={styles.infoIcon} />
+        <Text style={styles.infoText}>{booksItem.point}</Text>
       </View>
     </View>
   </View>
