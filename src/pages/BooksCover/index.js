@@ -3,19 +3,17 @@ import PropTypes from 'prop-types';
 import { View, AsyncStorage, ActivityIndicator, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Header from '../../components/Header';
-import api from '../../services/api';
 import styles from './styles';
-import BooksItem from './components/BooksItem';
-// AsyncStorage.clear();
-// import styles from './styles';
+import api from '../../services/api';
+import BooksCoverItem from './BooksCoverItem';
 
-const TabIcon = ({ tintColor }) => <Icon name="book" size={20} color={tintColor} />;
+const TabIcon = ({ tintColor }) => <Icon name="user" size={20} color={tintColor} />;
 
 TabIcon.propTypes = {
   tintColor: PropTypes.string.isRequired,
 };
 
-export default class Books extends Component {
+export default class BooksCover extends Component {
   static navigationOptions= {
     tabBarIcon: TabIcon,
   };
@@ -27,10 +25,10 @@ export default class Books extends Component {
   };
 
   async componentDidMount() {
-    this.loadBooks();
+    this.loadBooksCover();
   }
 
-  loadBooks = async () => {
+  loadBooksCover = async () => {
     this.setState({ refreshing: true });
 
     const email = await AsyncStorage.getItem('@Ourbooks:email');
@@ -41,7 +39,6 @@ export default class Books extends Component {
       this.setState({ data: item });
     });
 
-    // console.tron.log(response.data[0].books);
     this.setState({
       refreshing: false,
       loading: false,
@@ -49,7 +46,7 @@ export default class Books extends Component {
   }
 
   // renderListItem = ({ item }) => <BooksItem booksItem={item} />;
-  renderListItem = ({ item }) => <BooksItem booksItem={item} />
+  renderListItem = ({ item }) => <BooksCoverItem booksCoverItem={item} />
 
   renderList = () => {
     const { data } = this.state;
@@ -58,7 +55,9 @@ export default class Books extends Component {
         data={data.books}
         keyExtractor={item => String(item.id)}
         renderItem={this.renderListItem}
-        onRefresh={this.loadBooks}
+        onRefresh={this.loadBooksCover}
+        numColumns= {2}
+        columnWrapperStyle={styles.columnWrapper}
         refreshing={this.state.refreshing}
       />
     );
@@ -68,7 +67,7 @@ export default class Books extends Component {
     const { loading } = this.state;
     return (
       <View style={styles.container}>
-        <Header title="Meus Livros" />
+        <Header title="Capa dos Livros " />
         {loading ? <ActivityIndicator style={styles.loading} />
           : this.renderList()}
       </View>

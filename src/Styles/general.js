@@ -2,7 +2,7 @@ import colors from './colors';
 import metrics from './metrics';
 
 export default {
-  card: {
+  box: {
     backgroundColor: colors.white,
     borderRadius: metrics.baseRadius,
     padding: metrics.basePadding,

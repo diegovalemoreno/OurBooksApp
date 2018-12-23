@@ -2,7 +2,7 @@ import { createAppContainer, createSwitchNavigator, createBottomTabNavigator } f
 
 import Welcome from './pages/Welcome';
 import Books from './pages/Books';
-import Authors from './pages/Authors';
+import BooksCover from './pages/BooksCover';
 import colors from './Styles/colors';
 
 const Routes = (userLogged = false) => createAppContainer(
@@ -11,7 +11,7 @@ const Routes = (userLogged = false) => createAppContainer(
       Welcome,
       User: createBottomTabNavigator({
         Books,
-        Authors,
+        BooksCover,
       },
       {
         tabBarOptions: {
