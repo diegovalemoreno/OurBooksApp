@@ -47,14 +47,12 @@ export default class Welcome extends Component {
     this.setState({ loading: true });
     try {
       const response = await this.checkUserExists(email, password);
-      console.tron.log(response.data.token);
       await this.saveUser(email, password, response.data.token);
 
-      navigation.navigate('Books');
+      navigation.navigate('User');
     } catch (err) {
       this.setState({ loading: false });
       this.setState({ error: true });
-      console.tron.log('Usuario inexistente');
     }
   }
 

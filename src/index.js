@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage,YellowBox } from 'react-native';
 import './config/ReactotronConfig';
 
 import createNavigator from './routes';
-
+YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 export default class App extends Component {
+
   state = {
     userChecked: false,
     userLogged: false,
@@ -21,7 +22,6 @@ export default class App extends Component {
 
   render() {
     const { userChecked, userLogged } = this.state;
-    console.tron.log(this.state.userChecked)
     if (!userChecked) return null;
 
     const Routes = createNavigator(userLogged);
