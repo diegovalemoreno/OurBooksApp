@@ -7,6 +7,7 @@ import {
   StatusBar,
   AsyncStorage,
   ActivityIndicator,
+  Alert,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import api from '../../services/api';
@@ -40,6 +41,9 @@ export default class Welcome extends Component {
     await AsyncStorage.setItem('@Ourbooks:token', token);
   }
 
+  forgotPassword = () => {
+    Alert.alert('Esqueceu a senha?');
+  };
 
   signIn = async () => {
     const { email, password } = this.state;
@@ -87,6 +91,7 @@ export default class Welcome extends Component {
             placeholder="Digite sua senha"
             underlineColorAndroid="transparent"
             value={password}
+            secureTextEntry
             onChangeText={text => this.setState({ password: text })}
           />
           <TouchableOpacity style={styles.button} onPress={this.signIn}>
@@ -94,7 +99,11 @@ export default class Welcome extends Component {
               <ActivityIndicator size="small" color="#FFF" />)
               : (<Text style={styles.buttonText}>Prosseguir</Text>
               )}
-
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this.forgotPassword}>
+            <View>
+              <Text style={styles.buttonForgotPassword}>Esqueceu a senha</Text>
+            </View>
           </TouchableOpacity>
         </View>
       </View>

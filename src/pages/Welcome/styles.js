@@ -63,7 +63,15 @@ const styles = StyleSheet.create({
     color: colors.danger,
     textAlign: 'center',
     marginTop: metrics.baseMargin,
-  }
-}) 
+  },
+
+  buttonForgotPassword: {
+    marginTop: 20,
+    color: colors.lighter,
+    backgroundColor: colors.transparent,
+    textAlign: 'right',
+    paddingRight: 15,
+  },
+});
 
 export default styles;
