@@ -3,12 +3,17 @@ import { createAppContainer, createSwitchNavigator, createBottomTabNavigator } f
 import Welcome from './pages/Welcome';
 import Books from './pages/Books';
 import BooksCover from './pages/BooksCover';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
+
 import colors from './Styles/colors';
 
 const Routes = (userLogged = false) => createAppContainer(
   createSwitchNavigator(
     {
       Welcome,
+      ForgotPassword,
+      ResetPassword,
       User: createBottomTabNavigator({
         Books,
         BooksCover,
